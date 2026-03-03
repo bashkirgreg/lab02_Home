@@ -21,6 +21,7 @@ int main() {
 }
 */
 
+/*
 #include <iostream>
 
 int main() {
@@ -28,5 +29,27 @@ int main() {
     std::cout << "Please enter your name: ";
     std::cin >> name;
     std::cout << "Hello world from @" << name << std::endl;
+    return 0;
+}
+*/
+
+// Подключение библиотеки ввода и вывода
+#include <iostream>
+
+// Главная функция
+int main() {
+    // Переменная для имени пользователя
+    std::string name;
+
+    // Вывод запроса на экран
+    std::cout << "Please enter your name: ";
+
+    // Ввод имени пользователя
+    std::cin >> name;
+
+    // Вывод приветствия с ранее указанным именем пользователя
+    std::cout << "Hello world from @" << name << std::endl;
+
+    // Завершение программы
     return 0;
 }
