@@ -100,12 +100,86 @@ int main() {
 8. Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
 > Проверил, всё на месте.
 9. В удалённый репозитории выполните  слияние PR `patch1 -> master` и удалите ветку `patch1` в удаленном репозитории.
-
+> Выполнил.
 10. Локально выполните **pull**.
-
+> Выполнил с помощью команд `git checkout main` и `git pull origin main`.
 11. С помощью команды **git log** просмотрите историю в локальной версии ветки `master`.
+> Предоставляю историю в локальной версии основной ветки, где в каждом пунтке на всякий случай убрал личную почту:
+<details>
+<summary>Мой Git Log</summary>
+
+```sh
+commit 4a3524979dc39c794a2b336db50acff37b4eeb27 (HEAD -> main, origin/main, origin/HEAD)
+Merge: 964d76a 2b0cff5
+Author: Ge0rga4oK789 <email>
+Date:   Tue Mar 3 19:07:37 2026 +0300
+
+    Merge pull request #2 from bashkirgreg/patch1
+    
+    With comments (Final)
+
+commit 964d76a5fe37c2c00f6e3c958a1d8dd145112b15
+Author: Ge0rga4oK789 <email>
+Date:   Tue Mar 3 19:04:43 2026 +0300
+
+    Update README.md
+
+commit 2b0cff58e648dc354c6f7bf52794af8b909a1305 (origin/patch1, patch1)
+Author: bashkirgreg <email>
+Date:   Tue Mar 3 19:03:29 2026 +0300
+
+    With comments
+
+commit c4bb6d835f97bc22a8c9c195c9894ee468d779ca
+Merge: d5064b5 c876f17
+Author: Ge0rga4oK789 <email>
+Date:   Tue Mar 3 18:51:22 2026 +0300
+
+    Merge pull request #1 from bashkirgreg/patch1
+    
+    Sans using namespace std
+
+commit d5064b5d19fb11d4ccc720197ea933e7ad9b72e6
+Author: Ge0rga4oK789 <email>
+Date:   Tue Mar 3 18:37:56 2026 +0300
+
+    Update README.md
+
+commit c876f170f49e36792d697ce613f6d66fac3c68f1
+Author: bashkirgreg <email>
+Date:   Tue Mar 3 18:34:03 2026 +0300
+
+    Sans using namespace std
+
+commit 7ff622fb4a24fb9212811855bca82df1ff21830e
+Author: Ge0rga4oK789 <email>
+Date:   Tue Mar 3 18:19:13 2026 +0300
+
+    Update README.md
+
+commit 9f719e75eb347edd3c42c0f7c835e185dfaa1f04
+Author: bashkirgreg <email>
+Date:   Tue Mar 3 18:06:48 2026 +0300
+
+    New Hello World
+
+commit f4b7d5173fc155a570a8515110b07991bba494d4
+Author: bashkirgreg <email>
+Date:   Tue Mar 3 17:55:22 2026 +0300
+
+    Fisrt Hello World
+
+commit 80f5378e21803369e9ae6bb08cd4b2517a990d31
+Author: Ge0rga4oK789 <email>
+Date:   Tue Mar 3 17:38:34 2026 +0300
+
+    Initial commit
+```
+
+</details>
 
 12. Удалите локальную ветку `patch1`.
+> Удалил с помощью команды `git branch -d patch1`.
 
 ### Part III
 
