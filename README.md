@@ -195,7 +195,7 @@ Fast-forward
  2 files changed, 162 insertions(+)
 ```
 11. С помощью команды **git log** просмотрите историю в локальной версии ветки `master`.
-> Предоставляю историю в локальной версии основной ветки, где в каждом пунтке на всякий случай убрал личную почту:
+> Предоставляю историю в локальной версии основной ветки, где в каждом пунтке, на всякий случай, убрал личную почту:
 <details>
 <summary>Мой Git Log</summary>
 
@@ -286,19 +286,19 @@ Switched to a new branch 'patch2'
 2. Измените *code style* с помощью утилиты [**clang-format**](http://clang.llvm.org/docs/ClangFormat.html). Например, используя опцию `-style=Mozilla`.
 > Устанавливаю стиль через `sudo apt install clang-format`, а затем применяю форматирование к файлу `hello_world.cpp` через команду `clang-format -style=Mozilla -i hello_world.cpp`.
 3. **commit**, **push**, создайте pull-request `patch2 -> master`.
-> Сначала `git commit -m "Clang-Fromat"`:
+> Сначала `git commit -m "Mozilla Clang-Format"`:
 ```
-[patch2 c88b60a] Clang-Fromat
- 1 file changed, 13 insertions(+), 11 deletions(-)
+[patch2 b0d3878] Mozilla Clang-Format
+ 1 file changed, 20 insertions(+), 16 deletions(-)
 ```
 > Потом `git push origin patch2`:
 ```
-Enumerating objects: 31, done.
-Counting objects: 100% (31/31), done.
-Compressing objects: 100% (30/30), done.
-Writing objects: 100% (31/31), 9.64 KiB | 1.61 MiB/s, done.
-Total 31 (delta 6), reused 3 (delta 0), pack-reused 0
-remote: Resolving deltas: 100% (6/6), done.
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 421 bytes | 421.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
 remote: 
 remote: Create a pull request for 'patch2' on GitHub by visiting:
 remote:      https://github.com/bashkirgreg/lab02_Home/pull/new/patch2
@@ -335,9 +335,44 @@ int main() {
 5. Убедитесь, что в pull-request появились *конфликтны*.
 > Проверил, появились.
 6. Для этого локально выполните **pull** + **rebase** (точную последовательность команд, следует узнать самостоятельно). **Исправьте конфликты**.
-
+> Сначала ввожу команду `git pull origin main --rebase`, чтобы получить изменения с удалённого репозитория и интегрировать эти изменения с моими локальными коммитами:
+```
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 1.06 KiB | 1.06 MiB/s, done.
+From https://github.com/bashkirgreg/lab02_Home
+ * branch            main       -> FETCH_HEAD
+   b1f8601..ffb7504  main       -> origin/main
+Auto-merging hello_world.cpp
+CONFLICT (content): Merge conflict in hello_world.cpp
+error: could not apply b0d3878... Mozilla Clang-Format
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply b0d3878... Mozilla Clang-Format
+```
+> Потом вручную исправляю конфликты через команду `nano hello_world.cpp`, удаляя лишние элементы в коде. Вскоре ввожу команду `git add hello_world.cpp`, а затем команду `git rebase --continue` для продолжения процесса:
+```
+[detached HEAD b721201] Mozilla Clang-Format
+ 1 file changed, 20 insertions(+), 16 deletions(-)
+Successfully rebased and updated refs/heads/patch2.
+```
 7. Сделайте *force push* в ветку `patch2`
-
+> Делаю принудительную отправку изменений через команду `git push origin patch2 --force`:
+```
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 429 bytes | 429.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/bashkirgreg/lab02_Home
+ + b0d3878...b721201 patch2 -> patch2 (forced update)
+```
 8. Убедитель, что в pull-request пропали конфликтны. 
-
+> Проверил, они пропали.
 9. Вмержите pull-request `patch2 -> master`.
+> Выполнил.
