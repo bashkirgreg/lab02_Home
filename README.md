@@ -279,11 +279,34 @@ Deleted branch patch1 (was 2b0cff5).
 
 **Note:** *Работать продолжайте с теми же репоззиториями, что и в первой части задания.*
 1. Создайте новую локальную ветку `patch2`.
-
+> Создал и мгновенно переключился на новую ветку с помощью команды `git checkout -b patch2`:
+```
+Switched to a new branch 'patch2'
+```
 2. Измените *code style* с помощью утилиты [**clang-format**](http://clang.llvm.org/docs/ClangFormat.html). Например, используя опцию `-style=Mozilla`.
-
+> Устанавливаю стиль через `sudo apt install clang-format`, а затем применяю форматирование к файлу `hello_world.cpp` через команду `clang-format -style=Mozilla -i hello_world.cpp`.
 3. **commit**, **push**, создайте pull-request `patch2 -> master`.
-
+> Сначала `git commit -m "Clang-Fromat"`:
+```
+[patch2 c88b60a] Clang-Fromat
+ 1 file changed, 13 insertions(+), 11 deletions(-)
+```
+> Потом `git push origin patch2`:
+```
+Enumerating objects: 31, done.
+Counting objects: 100% (31/31), done.
+Compressing objects: 100% (30/30), done.
+Writing objects: 100% (31/31), 9.64 KiB | 1.61 MiB/s, done.
+Total 31 (delta 6), reused 3 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (6/6), done.
+remote: 
+remote: Create a pull request for 'patch2' on GitHub by visiting:
+remote:      https://github.com/bashkirgreg/lab02_Home/pull/new/patch2
+remote: 
+To https://github.com/bashkirgreg/lab02_Home
+ * [new branch]      patch2 -> patch2
+```
+> А затем создаю pull-request `patch2 -> master`.
 4. В ветке **master** в удаленном репозитории измените комментарии, например, расставьте знаки препинания, переведите комментарии на другой язык.
 
 5. Убедитесь, что в pull-request появились *конфликтны*.
